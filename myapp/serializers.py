@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from .models import *
 
 # Signup Serializer
 class SignupSerializer(serializers.ModelSerializer):
@@ -30,3 +31,8 @@ class SigninSerializer(serializers.Serializer):
             raise serializers.ValidationError("Invalid username or password")
         data["user"] = user
         return data
+
+class SongListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SongList
+        fields = '__all__'
