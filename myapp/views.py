@@ -40,3 +40,16 @@ class SigninView(APIView):
 class SongListViewSet(viewsets.ModelViewSet):
     queryset = SongList.objects.all()
     serializer_class = SongListSerializer
+
+
+
+class SongViewSet(viewsets.ModelViewSet):
+    queryset = SongList.objects.all()
+    serializer_class = SongListSerializer
+
+    def get_queryset(self):
+        queryset = SongList.objects.all()
+        song_id = self.request.query_params.get("id")
+        if song_id:
+            queryset = queryset.filter(id=song_id)
+        return queryset    
