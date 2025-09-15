@@ -49,3 +49,9 @@ class SongList(models.Model):
     thanglish_lyrics = models.TextField(null=True, blank=True)    # ✅ new field
     presenter_views=models.IntegerField(default=0)
     presenter_todayviews=models.IntegerField(default=0)
+
+
+class Favouritelist(models.Model):
+    article_title=models.CharField(max_length=400,default='')
+    username=models.CharField(max_length=400,default='')
+    userid=models.CharField(max_length=400,default='')    

@@ -36,3 +36,9 @@ class SongListSerializer(serializers.ModelSerializer):
     class Meta:
         model = SongList
         fields = '__all__'
+
+
+class FavouritelistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favouritelist
+        fields = '__all__'
