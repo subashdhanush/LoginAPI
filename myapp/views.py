@@ -13,7 +13,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import SignupSerializer, SigninSerializer,SongListSerializer,FavouritelistSerializer
+from .serializers import CategorySerializer,TagSerializer,SignupSerializer, SigninSerializer,SongListSerializer,FavouritelistSerializer
 
 # Signup API
 class SignupView(APIView):
@@ -106,3 +106,12 @@ class FavouritelistViewSet(viewsets.ModelViewSet):
             raise serializers.ValidationError("Song name is required")
 
         serializer.save(username=username, article_title=article_title)
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer    

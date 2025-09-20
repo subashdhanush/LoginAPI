@@ -38,6 +38,18 @@ class SongListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = '__all__'
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+
 class FavouritelistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favouritelist

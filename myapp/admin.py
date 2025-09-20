@@ -2,7 +2,7 @@ from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from myapp.models import *
 
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(ImportExportModelAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if request.user.username == 'christsquareuser':
@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('category_name', 'category_slug','category_description') 
 
 
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(ImportExportModelAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if request.user.username == 'christsquareuser':
