@@ -54,3 +54,11 @@ class FavouritelistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favouritelist
         fields = '__all__'
+
+class FavouriteSongsNewSerializer(serializers.ModelSerializer):
+    song_detail = SongListSerializer(source='fav_id', read_only=True)
+
+    class Meta:
+        model = Favouritesongsnew
+        fields = ['id', 'user', 'playlistname', 'fav_id', 'song', 'song_detail']
+        read_only_fields = ['user', 'song']        

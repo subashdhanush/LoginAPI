@@ -54,4 +54,12 @@ class SongList(models.Model):
 class Favouritelist(models.Model):
     article_title=models.CharField(max_length=400,default='')
     username=models.CharField(max_length=400,default='')
-    userid=models.CharField(max_length=400,default='')    
+    userid=models.CharField(max_length=400,default='')
+
+
+class Favouritesongsnew(models.Model):
+    user = models.CharField(max_length=400, default='')
+    fav_id = models.CharField(max_length=200, default='')
+    song = models.CharField(max_length=400, default='')
+    added_at = models.DateTimeField(auto_now_add=True)
+    playlistname=models.CharField(max_length=500, default='')
